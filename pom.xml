@@ -8,6 +8,7 @@
 		<version>2.5.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 		<!-- test mail-->
+		<!-- test mail failed-->
 	</parent>
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
