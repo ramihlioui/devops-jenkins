@@ -34,6 +34,7 @@ public class FournisseurServiceTest {
 
     @BeforeEach
     public void setUp() {
+        //hello
         fournisseur = new Fournisseur(1L, "code", "libelle", CategorieFournisseur.ORDINAIRE, null, null, null);
     }
 
