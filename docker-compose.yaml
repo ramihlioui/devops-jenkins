@@ -1,0 +1,68 @@
+version: '3.8'
+name: Devops
+services:
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql/data # from:to
+    networks:
+      - devops
+
+  devops:
+    image: devops
+    container_name: devops-achat
+    restart: always
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysql
+    networks:
+      - devops
+
+  nexus:
+    image: sonatype/nexus3
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - devops
+
+  sonarqube:
+    image: sonarqube
+    restart: always
+    ports:
+      - "9000:9000"
+    networks:
+      - devops
+
+  prometheus:
+    image: prom/prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    depends_on:
+      - grafana
+    networks:
+      - devops
+
+  grafana:
+    image: grafana/grafana
+    restart: always
+    ports:
+      - "6010:6010"
+      - "6030:6030"
+    networks:
+      - devops
+    depends_on:
+      - config
+
+networks:
+  devops:
+    driver: bridge
