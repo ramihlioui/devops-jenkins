@@ -48,6 +48,7 @@ public class FournisseurServiceTest {
         assertThat(result.size()).isEqualTo(1);
         assertThat(result.get(0)).isEqualTo(fournisseur);
     }
+    //hello test
 
     @Test
     public void testRetrieveFournisseur() {
