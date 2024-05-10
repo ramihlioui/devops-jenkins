@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @Api(tags = "Gestion des categories Produit")
-@RequestMapping("/categorieProduits")
+@RequestMapping("/categorieProduit")
 public class CategorieProduitController {
 
 	@Autowired
